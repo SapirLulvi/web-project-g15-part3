@@ -1,0 +1,70 @@
+
+section{
+    text-align: center;
+}
+
+#Password{
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+.title{
+    text-align:center;
+    font-size:40px;
+}
+
+
+input{
+    width: 250px;
+    padding: 10px 20px;
+    margin-bottom: 15px;
+    margin-top: 5px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    text-align: center;
+    transition: 0.2s;
+}
+
+input:focus {
+    outline: 0;
+    border-color: #000;
+}
+
+
+.totheright{
+    text-align: right;
+}
+
+form{
+    padding-bottom: 7px;
+}
+
+.button{
+    display: inline-block;
+    margin-right:100px;
+    background: #ffffff;
+    color :#000;
+    text-decoration: none;
+    padding: 6px 40px;
+    transition: 0.2s;
+    font-weight: bold;
+    border: 2px solid #000;
+    font-size:16px;
+    cursor: pointer;
+}
+
+.button:hover{
+    background: #000;
+    color: #fff;
+}
+.profile-page{
+    padding-top: 80px;
+    padding-bottom: 235px;
+}
+
+.message{
+    text-align: right;
+    margin-right:942px;
+
+}

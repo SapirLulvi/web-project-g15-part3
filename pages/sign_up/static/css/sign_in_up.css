@@ -1,0 +1,82 @@
+@import "../../../../Components/Header/static/CSS/header.css";
+@import "../../../../Components/Footer/static/CSS/footer.css";
+@import "../../../../CSS/variables.css";
+    *{
+        font-family: var(--font-text);
+    }
+    section{
+       text-align: center;
+        padding-top: 50px;
+        padding-bottom:50px;
+    }
+
+    #Email,#Password,#fname,#lname{
+        margin-bottom: 25px;
+    }
+
+     input{
+         width: 350px;
+         padding: 10px 20px;
+         margin-bottom: 15px;
+         margin-top: 5px;
+         display: inline-block;
+         border: 1px solid #ccc;
+         box-sizing: border-box;
+         text-align: center;
+         transition: 0.2s;
+    }
+    input:focus {
+        outline: 0;
+        border-color: #000;
+    }
+
+    label{
+        text-align: right;
+    }
+
+    form{
+        padding-bottom: 7px;
+    }
+
+    .button {
+      display: inline-block;
+        margin-top:10px;
+        margin-right: 50px;
+        background: var(--color_background_buttons);
+        color: var(--color_text_buttons);
+        text-decoration: none;
+        padding: 6px 40px;
+        transition: 0.2s;
+        font-weight: bold;
+        border: 2px solid #000;
+        font-size:16px;
+        cursor: pointer;
+    }
+
+
+    .button:hover {
+        background: var(--color_text_buttons);
+        color: var(--color_background_buttons);
+
+    }
+
+    .sign-page{
+        padding-top: 80px;
+        padding-bottom: 275px;
+    }
+
+
+    #signUp{
+        color: black;
+        margin-right: 50px;
+    }
+
+
+    .container {
+        max-width: 100% !important;
+        margin-left: 0px !important;
+        margin-right: 0px !important;
+        padding-right: 15px;
+        padding-left:15px;
+        padding-bottom: 50px;
+    }

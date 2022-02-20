@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% set page_head_title = 'הרשמה' %}
+
+{% block page_head_css %}
+    <link rel="stylesheet" href="{{ url_for('sign_in.static', filename='css/sign_in_up.css') }}"/>
+{% endblock %}
+{% block page_head_js %}<script src="{{ url_for('sign_in.static', filename='js/sign_in.js') }}"></script>{% endblock %}
+
+{% block page_body_main_content %}
+    <div class="container">
+        <section class="sign-page">
+            {% if not message2 %}
+                {% if message1 %}
+                    <div class="message">
+                        {{ message1 }}
+                    </div>
+                {% endif %}
+                    <h2>הרשמה לאתר</h2><br>
+                    <form action="/sign_up_reg" method="post">
+                        <label for="Email" >אימייל:</label>
+                        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp;
+                        <input type="email" id="Email" name="Email" required/>
+                        <p id="note1"></p>
+                        <label for="Password">סיסמה:</label>
+                        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp;
+                        <input type="password" id="Password" name="Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="חייב להכיל לפחות ספרה אחת ואות גדולה וקטנה אחת, ולפחות 8 תווים או יותר" required/><br>
+                        <p id="note2"></p>
+                        <label for="fname" >שם פרטי:</label>
+                        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp;
+                        <input type="text" id="fname" name="fname" required/><br>
+                        <p></p>
+                        <label for="lname">שם משפחה:</label>
+                        &nbsp&nbsp;
+                        <input type="text" id="lname" name="lname" required/><br>
+                        <p></p>
+                        <button type="submit" class="button" onclick="checkValidMail('Email','note1'), checkValidPass('Password','note2')">הרשמ/י</button><br><br>
+                    </form>
+            {% else %}
+                <div class="message">
+                    {{ message2 }}
+                </div>
+            {% endif %}
+        </section>
+    </div>
+
+
+{% endblock %}

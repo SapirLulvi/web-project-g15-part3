@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% set page_head_title = workshopDetails[0].workshop_name %}
+{% block page_head_css %}
+    <link rel="stylesheet" href="{{ url_for('workshops.static', filename='css/workshop_details.css') }}"/>
+{% endblock %}
+
+{% block page_body_main_content %}
+    {% if workshopDetails %}
+        <div class="container">
+            <section class="workshop-details">
+                <div>
+                    <h1>{{ workshopDetails[0].workshop_name }}</h1>
+                    <p class="workshop-content"> {{ workshopDetails[0].description1 }} </p>
+                    <h3>למי הסדנה מתאימה?</h3>
+                    <p class="workshop-content"> {{ workshopDetails[0].description2 }} </p>
+                    <p class="workshop-price">עלות הסדנה: {{ workshopDetails[0].price }} ש"ח</p>
+                    <p class="workshop-price">תאריך הסדנה: {{ workshopDetails[0].workshop_dt }} </p>
+                    <p class="workshop-price">מקומות פנויים: {{ workshopDetails[0].num_of_people }} </p>
+                    {% if message1 %}
+                        <script>
+                             alert("ההרשמה בוצעה בהצלחה!");
+                        </script>
+                    {% endif %}
+                    {% if message2 %}
+                        <script>
+                             alert("קיימת הרשמה קודמת לסדנה");
+                        </script>
+                    {% endif %}
+                    {% if workshopDetails[0].num_of_people > 0 %}
+                        <form action="/registration" method="post">
+                            <div class="remarks">
+                                <input type="hidden" name="workshop" value={{ workshopDetails[0].workshop_ID }}>
+                                <input type="hidden" name="workshopDT" value={{ workshopDetails[0].workshop_dt }}>
+                                <input type="hidden" name="workshopNum" value={{ workshopDetails[0].num_of_people }}>
+                                <label for="card">מספר כרטיס:</label><br>
+                                <input id="card" name="card" type="tel" inputmode="numeric" pattern="[0-9\s]{13,19}" autocomplete="cc-number" maxlength="19" placeholder="xxxx xxxx xxxx xxxx"><br><br>
+                                <label for="expiryDate"> תוקף כרטיס:</label><br>
+                                <input type="month"  id="expiryDate" name="expiryDate" min="2022-02" required/><br><br>
+                                <label for="cvv">CVV:</label><br>
+                                <input type="text"  id="cvv" name="cvv" minlength="3" maxlength="3" pattern="[0-9]{3}" required/><br><br>
+                                <button type="submit" class="button" >הרשמ/י</button><br><br>
+                            </div>
+                        </form>
+                    {% endif %}
+                </div>
+                <div class="img-box">
+                    <img src="{{ url_for('workshops.static', filename='media/img/' + workshopDetails[0].img_url) }}" class="workshop-details-photos" alt="workshop_img">
+                </div>
+            </section>
+        </div>
+    {% endif %}
+{% endblock %}
+

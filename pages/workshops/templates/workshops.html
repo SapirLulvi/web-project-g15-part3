@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% set page_head_title = 'סדנאות' %}
+
+{% block page_head_css %}
+    <link rel="stylesheet" href="{{ url_for('workshops.static', filename='css/workshop.css') }}"/>
+{% endblock %}
+
+{% if workshops %}
+
+    {% block page_body_main_content %}
+        <div class="container">
+            <h1 class="workshops-title">סדנאות שזירה</h1>
+            <p>סדנת עיצוב פרחים היא שילוב של כיף יחד עם לימודי שזירת פרחים ממדריכה מקצועית אשר עברה הדרכה אצל טליה.<br>
+                בסדנת שזירת פרחים נלמד טכניקות של עיצוב פרחים בסטודיו נעים בו תמצאו מגוון פרחים, חומרים וציוד לשזירה.<br>
+                בסוף הסדנה כל משתתפת לוקחת עימה את הזר שיצרה!<br>
+                כל אחת מסדנאות שזירת פרחים ניתן להזמין גם אליכם לבית או לאירוע.<br>
+                לפרטים נוספים ניתן ליצור איתנו קשר.<br>
+            </p>
+            <div class="workshops">
+                {% for w in workshops %}
+                    <div class="workshop">
+                        <img src="{{ url_for('workshops.static', filename='media/img/' + w.img_url) }}" class="workshop-image" alt="workshop_img">
+                        <div class="workshop-name">{{ w.workshop_name }}</div>
+                        <a href="/workshop-details?id={{ w.workshop_ID }}" class="workshop-button">לפרטים</a>
+                    </div>
+                {% endfor %}
+            </div>
+
+        </div>
+
+    {% endblock %}
+
+{% endif %}

@@ -1,0 +1,32 @@
+
+{% extends 'base.html' %}
+
+{% set page_head_title = 'דף הבית' %}
+
+{% set js_func = 'consoleText()' %}
+
+{% block page_head_css %}
+    <link rel="stylesheet" href="{{ url_for('homepage.static', filename='css/homepage.css') }}"/>
+{% endblock %}
+{% block page_head_js %}
+    <script src="{{ url_for('homepage.static', filename='js/homepage.js') }}"></script>
+{% endblock %}
+
+    {% block page_body_main_content %}
+        <section class="top_img">
+                <a href="{{ url_for('category.categoriesIndex') }}" class="shop-now"><b>הזמינו עכשיו</b></a>
+        </section>
+
+        <div class="container">
+            <div class='console-container'><span id='text'></span><div class='console-underscore' id='console'>&#95;</div></div>
+            <p class="hot-p">המומלצים שלנו</p>
+                <div class="products">
+                    {% for p in hot_p %}
+                        <div class="product">
+                            <img src="{{ url_for('product.static', filename='media/img/' + p.img_url) }}" class="product-image" alt="{{p.product_name}}">
+                            <a href="/product?id={{p.product_id}}" class="product-name">{{p.product_name}}</a>
+                        </div>
+                    {% endfor %}
+                </div>
+        </div>
+    {% endblock %}

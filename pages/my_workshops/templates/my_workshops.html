@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% set page_head_title = 'הסדנאות שלי' %}
+
+{% block page_head_css %}
+    <link rel="stylesheet" href="{{ url_for('my_workshops.static', filename='css/my_workshops.css') }}"/>
+{% endblock %}
+
+{% block page_body_main_content %}
+    <div class="container">
+        <div class="my-workshops-page">
+            <div class="workshop-table">
+                <h1> <strong>סדנאות עתידיות</strong></h1>
+                {% if Fworkshops %}
+                        {% for w in Fworkshops %}
+                             <div class="future-workshop">
+                                 <img class="workshop-image" src="{{ url_for('workshops.static', filename='media/img/' + w.img_url) }}" alt={{w.workshop_name}}>
+                                 <div class="workshop-name">{{w.workshop_name}}</div>
+                                 <div class="workshop-date">{{w.ws_DT}}</div>
+                                 <div class="workshop-price">{{w.price}} ש״ח</div>
+                                 <form action="/Delete_Workshop" method="post">
+                                     <input type="hidden" name="workshop" value={{w.ws_ID }}>
+                                     <button type="submit" class="workshop-remove">×</button>
+                                 </form>
+                             </div>
+                        {% endfor %}
+                {% else %}
+                    <div class="empty-workshops">
+                        <br> <p class="empty-workshops-text" >לא קיים רישום לסדנאות עתידיות...</p>
+                    </div>
+                {% endif %}
+            </div>
+
+
+            <div class="workshop-table">
+                <h1> <strong>היסטוריית סדנאות</strong></h1>
+                {% if Pworkshops %}
+                    {% for p in Pworkshops %}
+                         <div class="workshop">
+                             <img class="workshop-image" src="{{ url_for('workshops.static', filename='media/img/' + p.img_url) }}" alt={{p.workshop_name}}>
+                             <div class="workshop-name">{{p.workshop_name}}</div>
+                             <div class="workshop-date">{{p.ws_DT}}</div>
+                             <div class="workshop-price">{{p.price}} ש״ח</div>
+                         </div>
+                    {% endfor %}
+                {% else %}
+                    <div class="empty-workshops">
+                        <br> <p class="empty-workshops-text" >לא קיימת היסטוריית סדנאות עבורך...</p>
+                    </div>
+                {% endif %}
+            </div>
+
+        </div>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,35 @@
+
+{% extends 'base.html' %}
+
+{% block page_head_css %}
+    <link rel="stylesheet" href="{{ url_for( 'my_orders.static', filename='css/my_orders.css')}}"/>
+{% endblock %}
+
+{% set page_head_title = 'ההזמנות שלי' %}
+
+{% block page_body_main_content %}
+    <div class="container">
+        <div class="div-orders">
+            <h1> <strong>רשימת ההזמנות שלי</strong></h1>
+            {% if userOrders %}
+                <ol>
+                    {% for order in userOrders %}
+                        <li>
+                            <div class="order-details">
+                                <div class="order-date">תאריך הזמנה: {{ order.order_creation_dt }}</div>
+                                <div class="order-cost">סכום לתשלום: {{ order.totalPrice }}</div>
+                                <a href="/order_details?id={{order.email}}&date={{ order.order_creation_dt }}">לצפייה בהזמנה</a>
+                            </div>
+                        </li>
+                    {%  endfor %}
+                </ol>
+            {% else %}
+                <div class="empty-orders">
+                    <br> <p class="empty-orders-text" >עדיין לא ביצעת הזמנות...</p>
+                </div>
+            {% endif %}
+
+        </div>
+    </div>
+
+{% endblock %}

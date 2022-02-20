@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% set page_head_title = 'פרטי הזמנה ' %}
+
+{% block page_head_css %}
+    <link rel="stylesheet" href="{{ url_for('my_orders.static', filename='css/order_details.css') }}"/>
+{% endblock %}
+
+{% block page_body_main_content %}
+     <div class="container">
+        {% if products %}
+            <div class="order-form-title">פרטי הזמנה</div>
+
+            <div class="order-details-page">
+                    {% for product in products %}
+                         <div class="order-details-product">
+                             <img class="product-image" src="{{ url_for('product.static', filename='media/img/' + product.img_url) }}" alt={{product.product_name}}>
+                             <div class="order-details-product-name">{{product.product_name}}</div>
+                             <div class="order-details-product-price">{{product.TotalPrice}} ש״ח</div>
+                             <div class="order-details-product-quantity">
+                                  x{{ product.quantity }}</div>
+                         </div>
+                    {% endfor %}
+            </div>
+        {% endif %}
+    </div>
+{% endblock %}

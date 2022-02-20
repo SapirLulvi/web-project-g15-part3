@@ -1,0 +1,70 @@
+    *{
+        font-family: var(--font-text);
+    }
+.workshops-title,p{
+    padding-top:50px;
+    font-weight: normal;
+    font-size: 33px;
+    margin:0;
+    text-align: center;
+}
+p{
+    font-size: 18px;
+    padding-top:10px;
+}
+
+.workshops{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 10px;
+    grid-row-gap: 50px;
+    padding-top: 50px;
+    padding-bottom:50px;
+}
+
+
+.workshop{
+    text-align:center;
+}
+
+.workshop-image{
+    height: 75%;
+    width: 75%;
+    transition: 0.5s;
+}
+
+.workshop-image:hover{
+    border: none;
+    transform: scale(1.1);
+}
+
+.workshop-name {
+    font-size:18px;
+    margin-top: 25px;
+}
+
+.workshop-button {
+    display: inline-block;
+    margin-top:10px;
+    background: var(--color_background_buttons);
+    color: var(--color_text_buttons);
+    text-decoration: none;
+    padding: 6px 23px;
+    transition: 0.2s;
+    font-weight: bold;
+    border: 2px solid #000;
+}
+.workshop-button:hover{
+    background: var(--color_text_buttons);
+    color: var(--color_background_buttons);
+}
+
+.container {
+    max-width: 100%!important;
+    margin-right: 0px!important;
+    margin-left: 0px!important;
+    padding-right: 15px;
+    padding-left:15px;
+    padding-bottom: 50px;
+}
+

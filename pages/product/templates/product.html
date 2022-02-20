@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block page_head_css %}
+    <link rel="stylesheet" href="{{ url_for('product.static', filename='css/product.css') }}"/>
+{% endblock %}
+
+
+{% if product %}
+    {% set page_head_title = product[0].product_name %}
+
+    {% block page_body_main_content %}
+            <div class="container">
+            <section class="product-page">
+                <div>
+                    <h1 class="product-title">{{ product[0].product_name }}</h1>
+                    <p class="product-content">{{ product[0].description }}</p>
+                    <p class="product-price">{{ product[0].price }} ש"ח</p>
+                    <form action="/add_product_sc" method="post">
+                        <input type="hidden" name="p_id" value={{ product[0].product_ID }}>
+                        <input type="hidden" name="p_price" value={{ product[0].price }}>
+                        <button type="submit" class="product-button">הוספה לסל הקניות</button><br><br>
+                    </form>
+                    {% if msg %}
+                        <script>
+                            alert("המוצר נוסף לסל בהצלחה!");
+                        </script>
+                    {% endif %}
+                </div>
+                <div class="img-box">
+                    <img src="{{ url_for('product.static', filename='media/img/' + product[0].img_url) }}" class="product-photo" alt="product_img">
+                </div>
+            </section>
+            </div>
+    {% endblock %}
+{% endif %}

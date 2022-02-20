@@ -1,0 +1,107 @@
+
+    *{
+        font-family: var(--font-text);
+    }
+    header {
+        background: var(--backgroung-header_footer);
+        position: sticky;
+        top: 0;
+        z-index: 1;
+        text-align: center;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+    nav {
+        background: var(--backgroung-header_footer);
+        font-size: 18px;
+        font-weight: bold;
+        width: 100%;
+        margin-top:10px;
+        padding-top: 10px;
+        border-top: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+    header a, nav a {
+        color: var(--text-color);
+        text-decoration: none;
+    }
+
+    .top-line-left {
+        float: left;
+        margin: 10px;
+        padding-left: 10px;
+        transition: 0.2s;
+        font-size: 20px;
+        font-weight: bold;
+    }
+
+        .top-line-center {
+        display: inline-block;
+        margin: 3px;
+        padding-right: 10%;
+    }
+    .top-line-right {
+        float: right;
+        margin: 10px;
+        padding-right: 10px;
+        transition: 0.2s;
+        font-size: 20px;
+        font-weight: bold;
+    }
+
+
+    .top-line-left:hover,.top-line-right:hover,.navline:hover {
+        color: var(--color_hover);
+    }
+
+    .navline {
+        margin: 30px;
+        padding: 5px;
+        transition: 0.2s;
+    }
+
+    .logo_img{
+        height: 73px;
+        width: 200px;
+    }
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  padding: 12px 16px;
+  z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+
+    @media only screen and (max-width: 600px) {
+        *{
+            font-size: 13px;
+        }
+        .navline {
+        margin: 5px;
+        padding: 5px;
+        transition: 0.2s;
+        }
+        .top-line-left{
+            font-size: 13px;
+        }
+        .logo_img{
+            height: 50px;
+            width: 100px;
+        }
+
+    }

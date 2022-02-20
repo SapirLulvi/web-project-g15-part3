@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% set page_head_title = 'עדכון פרטים' %}
+
+{% block page_head_css %}
+    <link rel="stylesheet" href="{{ url_for('user_details.static', filename='css/user_details.css') }}"/>
+{% endblock %}
+
+{% block page_head_js %}
+    <script src="{{ url_for('sign_in.static', filename='js/sign_in.js') }}"></script>
+{% endblock %}
+
+{% block page_body_main_content %}
+        <section class="profile-page">
+            <div class="title">היי {{ session.FirstName}}</div>
+            <form action="/update_pass" method="post">
+                <label for="Password"> שינוי סיסמה:</label>
+                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp;
+                <input type="password" id="Password" name="Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="חייב להכיל לפחות ספרה אחת ואות גדולה וקטנה אחת, ולפחות 8 תווים או יותר" /><br>
+                <p id="note2"></p>
+                <button type="submit" class="button" onclick="checkValidPass('Password','note2')">עדכנ/י</button><br><br>
+                {% if message %}
+                    <div class="message">
+                        {{ message }}
+                    </div>
+                {% endif %}
+            </form>
+        </section>
+{% endblock %}

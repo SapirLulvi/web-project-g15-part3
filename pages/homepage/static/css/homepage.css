@@ -1,0 +1,116 @@
+*{
+    font-family: var(--font-text);
+}
+
+section, .product{
+    text-align:center;
+}
+
+.hot-p{
+    text-align: center;
+    font-size: 33px;
+    margin-top: 10px ;
+}
+
+
+.products {
+    width: 90%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr ;
+    grid-column-gap: 40px;
+    grid-row-gap: 75px;
+    padding-top: 10px;
+    padding-bottom:50px;
+    margin: auto;
+}
+
+.product-name {
+    padding-top:21px;
+    display: inline-block;
+    margin-top:10px;
+    color: var(--color_text_buttons);
+    text-decoration: none;
+    padding: 6px 23px;
+    transition: 0.2s;
+    font-weight: bold;
+}
+
+.product-name:hover {
+    color: var(--color_text_buttons);
+}
+
+.container {
+        padding-right: 15px;
+        padding-left:15px;
+        max-width: 100% !important;
+        margin-left: 0px !important;
+        margin-right: 0px !important;
+        text-align: center;
+        padding-bottom: 50px;
+    }
+
+ .top_img{
+    width: 100%;
+    height: 500px;
+    background-image: url("../media/img/top_img.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+ }
+
+.shop-now{
+    position: relative;
+    margin-top: 18% ;
+    width: 300px;
+    padding: 15px;
+    top: 420px;
+    border: 3px solid #000;
+    font-size: 30.5px ;
+    transition: 0.5s;
+    background-color: white;
+    opacity: 0.75;
+
+}
+
+.shop-now:hover{
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 31px ;
+    background-color: white;
+    opacity: 0.9;
+}
+
+.product-image {
+    height: 90%;
+    width: 90%;
+    transition: 0.2s;
+}
+
+.product-image:hover{
+    border: none;
+    transform: scale(1.1);
+}
+
+.console-container {
+  position: relative;
+  top: 30%;
+  margin-top: 2%;
+  margin-left: auto;
+  margin-right: auto;
+  border-right: 2px solid rgba(255,255,255,.75);
+  font-size: 180%;
+  text-align: center;
+  background-color: white;
+}
+.console-underscore {
+   display:inline-block;
+  position:relative;
+  top:-0.14em;
+  left:10px;
+}
+
+@media only screen and (max-width: 600px) {
+    .hot-p{
+        font-size: 16px;
+    }
+}
+

@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% set page_head_title = 'קטגוריות' %}
+
+{% block page_head_css %}
+    <link rel="stylesheet" href="{{ url_for('category.static', filename='css/categories.css') }}"/>
+{% endblock %}
+
+{% block page_body_main_content %}
+
+    <div class="container">
+        <h1 class="categories-title">קטגוריות</h1>
+        <div class="categories">
+            {% for c in categories_list %}
+                <div class="category">
+                    <img src="{{ url_for('category.static', filename='media/img/' + c.img_url) }}" class="category-image" alt="{{c.category_name}}">
+                    <a href="/category?id={{c.category_ID}}" class="category-button">{{c.category_name}}</a>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,53 @@
+<link rel="stylesheet" href="{{ url_for('header.static', filename='css/header.css') }}"/>
+
+
+<div>
+    <header>
+        {%
+            set header_items = {
+                'homepage': '/',
+                'shopping_cart': url_for('shopping_cart.index'),
+                'sign_out': url_for('log_out.index'),
+                'sign_in': url_for('sign_in.index')
+            }
+        %}
+
+        {%
+            set header_nav_items = {
+                'homepage': '/',
+                'about': url_for('about.index'),
+                'workshops': url_for('workshops.workshopsIndex')
+            }
+        %}
+        <a href="{{ header_items['shopping_cart'] }}" class="top-line-left">
+            <img src="{{ url_for('header.static', filename='media/img/cart_icon.png') }}" alt="cart" height="25" width="25">
+        </a>
+        <a href="{{header_items['homepage'] }}" class="top-line-center"><img src="{{ url_for('header.static', filename='media/img/logo.png') }}" alt="Logo" class="logo_img"></a>
+        {% if session.logged_in %}
+            <a href="{{ header_items['sign_out'] }}" class="top-line-left">התנתקות</a>
+            <div class="dropdown top-line-right">
+              <img src="{{ url_for('header.static', filename='media/img/login_icon.png') }}" alt="icon" height="25" width="25">
+              <div class="dropdown-content">
+                  <a href="/user_details">עדכון סיסמה</a>
+                  <a href="/my_orders">ההזמנות שלי</a>
+                  <a href="/my_workshops">הסדנאות שלי</a>
+              </div>
+            </div>
+        {% else %}
+            <a href="{{ header_items['sign_in'] }}" class="top-line-left">התחברות</a>
+            <a href="{{ header_items['sign_in'] }}" class="top-line-right">
+                <img src="{{ url_for('header.static', filename='media/img/off_icon.png') }}" alt="icon" height="40" width="40">
+            </a>
+        {% endif %}
+
+        <nav>
+            <a href="{{ header_nav_items['homepage'] }}" class="navline">דף הבית</a>
+            <a href="{{ header_nav_items['about'] }}" class="navline">אודות</a>
+            <a href="/category?id=1" class="navline">זרים</a>
+            <a href="/category?id=2" class="navline">זרים לראש</a>
+            <a href="/category?id=3" class="navline">זרי כלה</a>
+            <a href="/category?id=4" class="navline">קופסאות פרחים</a>
+            <a href="{{ header_nav_items['workshops'] }}" class="navline">סדנאות</a>
+        </nav>
+    </header>
+</div>

@@ -1,0 +1,135 @@
+
+    *{
+        font-family: var(--font-text);
+    }
+
+    .container {
+        max-width: 95%;
+        margin-right: auto;
+        margin-left: auto;
+        padding-right: 15px;
+        padding-left:15px;
+        padding-bottom: 50px;
+    }
+
+    .workshop{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        padding: 15px 10px;
+        border-bottom: 1.5px solid rgba(0, 0, 0, 0.05);
+        text-align:center;
+        align-items: center;
+    }
+
+    .future-workshop{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+        padding: 15px 10px;
+        border-bottom: 1.5px solid rgba(0, 0, 0, 0.05);
+        text-align:center;
+        align-items: center;
+    }
+
+    .workshop-image{
+        padding: 3px 3px;
+        height:80px;
+        width:80px;
+    }
+
+    .workshop-name{
+      padding: 3px 3px;
+      font-size: 17px;
+    }
+
+    .my-workshops-page{
+        padding-bottom: 50px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-column-gap: 30px;
+    }
+
+
+    .workshop-remove {
+        border: 2px solid rgba(0, 0, 0, 0.2);
+        color: rgba(0, 0, 0, 0.2);
+        border-radius: 120px;
+        width: 30px;
+        height: 30px;
+        padding-top: 1px;
+        font-size: 20px;
+        cursor: pointer;
+        background:none;
+        margin-right: auto;
+        margin-left: 25px;
+        transition: 0.15s;
+    }
+
+    .workshop-remove:hover{
+        background: var(--color_background_buttons);
+        color: var(--color_text_buttons);
+    }
+
+
+    .workshop-price{
+        font-size: 17px;
+    }
+
+
+    #submit{
+        text-align: center;
+    }
+
+    .sending-button:hover{
+        background: var(--color_text_buttons);
+        color: var(--color_background_buttons);
+    }
+
+    p{
+    font-size: 15px;
+    }
+
+
+
+@media only screen and (max-width: 600px) {
+    .shopping-cart-product-name{
+      font-size: 11px;
+    }
+    .shopping-cart-product-price{
+        font-size: 11px;
+    }
+    .shopping-cart-product-remove {
+        font-size: 11px;
+    }
+    .shopping-cart-product-remove{
+        border-radius: 100px;
+        font-size: 10px;
+        width: 20px;
+        height: 20px;
+
+    }
+    .remarks{
+        border: 1.5px solid rgba(0, 0, 0, 0.2);
+        padding: 20px 30px;
+        text-align:right;
+        padding-top:10px;
+        padding-bottom:30px;
+        font-size:11px;
+    }
+    .sending-button{
+        font-size: 11px;
+    }
+
+    .empty-workshops {
+        padding-bottom: 50px;
+        margin-top: 20px;
+        margin-bottom: 170px;
+        text-align: center;
+    }
+
+    .empty-workshops-text{
+        font-size: 21px;
+    }
+
+
+}
+
